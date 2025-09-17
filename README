@@ -30,3 +30,10 @@ http://192.168.2.172:8081/repository/maven-snapshots/
 
 mvn clean deploy --settings settings.xml
 mvn clean deploy -s settings.xml
+
+
+
+The Core Idea: Think of a Book
+A SNAPSHOT is like a draft of a book chapter you're still writing. You keep sending new drafts to your editor (other developers) with the same title. They know it's a work-in-progress and expect it to change.
+
+A RELEASE is like the final, published version of the book. Once it's printed and sent to bookstores, you cannot change it. If you find a typo, you have to publish a new, fixed version (e.g., "Second Edition")
