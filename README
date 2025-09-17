@@ -37,3 +37,26 @@ The Core Idea: Think of a Book
 A SNAPSHOT is like a draft of a book chapter you're still writing. You keep sending new drafts to your editor (other developers) with the same title. They know it's a work-in-progress and expect it to change.
 
 A RELEASE is like the final, published version of the book. Once it's printed and sent to bookstores, you cannot change it. If you find a typo, you have to publish a new, fixed version (e.g., "Second Edition")
+
+
+    Maven SNAPSHOT (The "Draft")
+
+      Purpose:   For   development  . It's a work-in-progress version.
+      Version Number:   Always ends with `-SNAPSHOT`
+        Example: `1.0-SNAPSHOT`, `2.5.1-SNAPSHOT`
+      Can it change?     YES!   This is the key difference. Maven will periodically check the remote repository for a  newer  version of the same SNAPSHOT. If you deploy `my-app-1.0-SNAPSHOT.jar` today, you can deploy a completely different file with the same name tomorrow.
+      When to use it:  
+        You are actively developing a feature.
+        Other developers or projects need to integrate with your latest, unstable code.
+        For testing in a development environment.
+
+    Maven RELEASE (The "Final Product")
+
+      Purpose:   For   production  . It's a stable, final version.
+      Version Number:   Does   NOT   have `-SNAPSHOT`
+        Example: `1.0`, `1.0.1`, `2.5.1`
+      Can it change?     NO!   A release version is immutable. Once `my-app-1.0.jar` is deployed to a repository, it must never be changed. This guarantee is crucial for reproducible builds. If you need to make a change, you must create a new version number (e.g., `1.0.1` or `1.1`).
+      When to use it:  
+        Deploying to a production server.
+        Creating a stable milestone (e.g., for QA testing).
+        Any time you need a guaranteed, unchanging artifact.
