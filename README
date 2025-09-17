@@ -16,6 +16,13 @@ curl -u admin:1234 \
 ----------------------------------------------------------------------------------
 #settings.xml method
 
+docker run -d --name nexus -p 8081:8081 -v /root/temp/nexus-data:/nexus-data sonatype/nexus3
+firewall-cmd --add-port=8081/tcp
+
+https://<ip>:8081/
+to create a repo -> settings-> repositories -> new repo -> maven2(hosted) , configure & save
+
+
 http://192.168.2.172:8081/repository/maven-releases/
 
 http://192.168.2.172:8081/repository/maven-snapshots/
