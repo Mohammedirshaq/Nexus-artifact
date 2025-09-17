@@ -14,7 +14,8 @@
 
     <groupId>com.example</groupId>
     <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
+<!-- <version>0.0.1-SNAPSHOT</version>  -->
     <name>springboot-calculator</name>
     <description>Demo project for Spring Boot</description>
 
@@ -51,6 +52,22 @@
             </plugin>
         </plugins>
     </build>
+
+    <!-- Your existing project configuration -->
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>irshaq-repository</id>
+            <url>http://192.168.2.172:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+
+        <repository>
+            <id>irshaq-repository</id>
+            <url>http://192.168.2.172:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <!-- Your existing dependencies and other configuration -->
 
 </project>
  

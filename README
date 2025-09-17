@@ -1,0 +1,25 @@
+#deploy-file method
+
+mvn deploy:deploy-file \
+  -DgroupId=com.example \
+  -DartifactId=demo \
+  -Dversion=0.0.1-SNAPSHOT \
+  -Dpackaging=jar \
+  -Dfile=target/demo-0.0.1-SNAPSHOT.jar \
+  -Durl=http://admin:1234@192.168.2.172:8081/repository/irshaq-java-apk/ \
+  -DgeneratePom=true
+
+curl -u admin:1234 \
+          -o my-app.jar \
+          "http://192.168.2.172:8081/repository/irshaq-java-apk/com/example/demo/0.0.1-SNAPSHOT/demo-0.0.1-20250917.121245-1.jarapp/1.0.0/my-app-1.0.0.jar"
+
+----------------------------------------------------------------------------------
+#settings.xml method
+
+http://192.168.2.172:8081/repository/maven-releases/
+
+http://192.168.2.172:8081/repository/maven-snapshots/
+
+
+mvn clean deploy --settings settings.xml
+mvn clean deploy -s settings.xml
